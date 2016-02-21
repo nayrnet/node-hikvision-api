@@ -22,16 +22,16 @@ var options = {
 	log 	: false,
 };
 
-var dahua 	= new ipcamera.hikvision(options);
+var hikvision 	= new ipcamera.hikvision(options);
 
 // Switch to Day Profile
-dahua.nightProfile()
+hikvision.nightProfile()
 
 // PTZ Go to preset 10
-dahua.ptzPreset(10)
+hikvision.ptzPreset(10)
 
 // Monitor Camera Alarms
-dahua.on('alarm', function(code,action,index) {
+hikvision.on('alarm', function(code,action,index) {
 	if (code === 'VideoMotion' && action === 'Start')	console.log('Video Motion Detected')
 	if (code === 'VideoMotion' && action === 'Stop')	console.log('Video Motion Ended')
 	if (code === 'AlarmLocal' && action === 'Start')	console.log('Local Alarm Triggered: ' + index)
@@ -46,46 +46,46 @@ dahua.on('alarm', function(code,action,index) {
 ## Functions:
 ```javascript
 // Switch Camera to Night Profile
-dahua.dayProfile()
+hikvision.dayProfile()
 
 // Switch Camera to Night Profile
-dahua.nightProfile()
+hikvision.nightProfile()
 
-// Issue Dahua RAW PTZ Command (See API Manual in GitHub Wiki)
-dahua.ptzCommand(cmd,arg1,arg2,arg3,arg4)
+// Issue hikvision RAW PTZ Command (See API Manual in GitHub Wiki)
+hikvision.ptzCommand(cmd,arg1,arg2,arg3,arg4)
 
 // Go To Preset
-dahua.ptzPreset(int)
+hikvision.ptzPreset(int)
 
 // PTZ Zoom, input level: positive = zoom in / negative = zoom out
-dahua.ptzZoom(float)
+hikvision.ptzZoom(float)
 
 // PTZ Move
 // Directions = Up/Down/Left/Right/LeftUp/RightUp/LeftDown/RightDown
 // Actions = start/stop
 // Speed = 1-8
-dahua.ptzMove(direction,action,speed)
+hikvision.ptzMove(direction,action,speed)
 
 // Request current PTZ Status
-dahua.ptzStatus()
+hikvision.ptzStatus()
 
 // Callback for any Alarm (Motion Detection/Video Loss & Blank/Alarm Inputs)
-dahua.on('alarm', function(code,action,index){  });
+hikvision.on('alarm', function(code,action,index){  });
 
 // Callback for PTZ Status
-dahua.on('ptzStatus', function(data){  });
+hikvision.on('ptzStatus', function(data){  });
 
 // Callback on connect
-dahua.on('connect', function(){  });
+hikvision.on('connect', function(){  });
 
 // Callback on error
-dahua.on('error', function(error){  });
+hikvision.on('error', function(error){  });
 
 ```
 
 ## Options
-* host - hostname of your Dahua camera
-* port - port for your Dahua camera (80 by default)
+* host - hostname of your hikvision camera
+* port - port for your hikvision camera (80 by default)
 * user - username for camera
 * pass - password for camera
 * log - boolean to show detailed logs, defaults to false.
