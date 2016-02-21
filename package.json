@@ -1,0 +1,33 @@
+{
+  "name": "node-hikvision-api",
+  "version": "0.0.1",
+  "description": "Hikvision HTTP API Module",
+  "main": "hikvision.js",
+  "dependencies": {
+    "xml2js": "^0.4.16"
+    "net-keepalive": "^0.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayrnet/node-hikvision-api.git"
+  },
+  "keywords": [
+    "Hikvision",
+    "Hik",
+    "Imporx",
+    "PTZ",
+    "IPC",
+    "Security Camera",
+    "Home Automation"
+  ],
+  "author": "Ryan Hunt",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nayrnet/node-hikvision-api/issues"
+  },
+  "homepage": "https://github.com/nayrnet/node-hikvision-api#readme"
+}
