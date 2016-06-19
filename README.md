@@ -32,15 +32,33 @@ hikvision.ptzPreset(10)
 
 // Monitor Camera Alarms
 hikvision.on('alarm', function(code,action,index) {
-	if (code === 'VideoMotion' && action === 'Start')	console.log('Video Motion Detected')
-	if (code === 'VideoMotion' && action === 'Stop')	console.log('Video Motion Ended')
-	if (code === 'AlarmLocal' && action === 'Start')	console.log('Local Alarm Triggered: ' + index)
-	if (code === 'AlarmLocal' && action === 'Stop')		console.log('Local Alarm Ended: ' + index)
-	if (code === 'VideoLoss' && action === 'Start')		console.log('Video Lost!')
-	if (code === 'VideoLoss' && action === 'Stop')		console.log('Video Found!')
-	if (code === 'VideoBlind' && action === 'Start')	console.log('Video Blind!')
-	if (code === 'VideoBlind' && action === 'Stop')		console.log('Video Unblind!')
+	if (code === 'VideoMotion'   && action === 'Start')  console.log(getDateTime() + ' Channel ' + index + ': Video Motion Detected')
+	if (code === 'VideoMotion'   && action === 'Stop')   console.log(getDateTime() + ' Channel ' + index + ': Video Motion Ended')
+	if (code === 'LineDetection' && action === 'Start')  console.log(getDateTime() + ' Channel ' + index + ': Line Cross Detected')
+	if (code === 'LineDetection' && action === 'Stop')   console.log(getDateTime() + ' Channel ' + index + ': Line Cross Ended')
+	if (code === 'AlarmLocal'    && action === 'Start')  console.log(getDateTime() + ' Channel ' + index + ': Local Alarm Triggered: ' + index)
+	if (code === 'AlarmLocal'    && action === 'Stop')   console.log(getDateTime() + ' Channel ' + index + ': Local Alarm Ended: ' + index)
+	if (code === 'VideoLoss'     && action === 'Start')  console.log(getDateTime() + ' Channel ' + index + ': Video Lost!')
+	if (code === 'VideoLoss'     && action === 'Stop')   console.log(getDateTime() + ' Channel ' + index + ': Video Found!')
+	if (code === 'VideoBlind'    && action === 'Start')  console.log(getDateTime() + ' Channel ' + index + ': Video Blind!')
+	if (code === 'VideoBlind'    && action === 'Stop')   console.log(getDateTime() + ' Channel ' + index + ': Video Unblind!')
 });
+
+function getDateTime() {
+	var date = new Date();
+	var hour = date.getHours();
+	hour = (hour < 10 ? "0" : "") + hour;
+	var min  = date.getMinutes();
+	min = (min < 10 ? "0" : "") + min;
+	var sec  = date.getSeconds();
+	sec = (sec < 10 ? "0" : "") + sec;
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	month = (month < 10 ? "0" : "") + month;
+	var day  = date.getDate();
+	day = (day < 10 ? "0" : "") + day;
+	return year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec;
+}
 ```
 
 ## Functions:
