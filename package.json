@@ -4,7 +4,7 @@
   "description": "Hikvision HTTP API Module",
   "main": "hikvision.js",
   "dependencies": {
-    "xml2js": "^0.4.16"
+    "xml2js": "^0.4.16",
     "net-keepalive": "^0.3.3"
   },
   "devDependencies": {},
